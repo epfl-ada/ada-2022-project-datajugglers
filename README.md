@@ -11,9 +11,8 @@ How do actors become famous? Is it only thanks to their talent, or did they foll
 
 - Can we find a relation between networking and the evolution of an actor's career over time? 
 - Are there actors that influence more than others? 
-- Does the "speed" of the evolution of the actor's career change according to the number of famous actors he plays with?
+- Are actors with many edges better ? 
 - For actors with multiple occurrences, is the rating of the next movie they play influenced by the actor's "success"? 
-- How does the region of the actor influence his network?
   
 ## Additional datasets
 
