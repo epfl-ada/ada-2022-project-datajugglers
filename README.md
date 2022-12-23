@@ -2,10 +2,11 @@
 
 ___Study of the influence of actor's network on their career evolution___
 
+**Data story**: [https://cha2500.github.io/ada-2022-project-datajugglers/](https://cha2500.github.io/ada-2022-project-datajugglers/).
+
 ## Abstract
 
 How do actors become famous? Is it only thanks to their talent, or did they follow a certain pattern? Did their career explode once they played with a well known actor? In this study, we aim to assess whether there is a link between an actor's network and the quality of the movies he plays in, characterized by their ratings. For the purpose of our analysis, we will construct a graph that can change over time, where nodes are actors and edges represent the fact that two actors play in a movie together. We use an additional dataset taken from IMDb, in order to get the ratings of those movies. We will explore the evolution of actors' careers through 126 years, from 1888 to 2014, with 300 185 actors and 44 129 movies. 
- 
 
 ## Research questions
 
@@ -29,14 +30,16 @@ As we are interested in knowing how much a certain movie is appreciated by the p
     
 Both datasets were connected thanks to the tconst feature. Then, the movie name could be linked to the average rating of the movie. After having merged both dataset, we compared the resulting dataset to the one given from the course. It was found that 44 129 movies were in common, and could be used for our study. Furthermore, we got around 300 185 actors that could be linked to one of those rated movies from the 450 000 actors that were in the original dataset. Finally we created a dataset combining all the features that we will be needed for our study: "Actor Name", "startYear", "Movie name", and "averageRating".
 
-
 ## Methods
+
 ### Data preprocessing
+
 The first step of data cleaning involved counting the percentage of missing values to determine what features could not be used. For instance, we concluded that box office revenue couldn’t be used to determine a movie revenue because the dataset is missing that information for more than 90% of its movies.
 Then, we cleaned the data and normalized the date format, as described in the notebook.
 At this point we included review information from additional sources, as described in the Additional datasets section.
 
 ### Data visualization
+
 We got a better understanding of the data by drawing several plottings of it, such as the distribution of actors and movies across time to make sure we have enough data for our purpose, as time is a key factor in our project.
 Finally, we plotted the average degree (number of edges) in our actor graph to make sure our proposal is feasible.
 
@@ -46,22 +49,21 @@ We use the networkx library to implement the Actor Graph. This will be the funda
 
 We plan to annotate each vertex (i.e. each actor in a time window) quality score aggregating the ratings of the movies he played in during that specific time window. We can either work with multi edges or weighted edges between actors when they play together in several movies to strengthen his relationship in the graph. For mathematical details of the graph please see the jupyter notebook.
 
-To measure the networking impact in an actor's career, we consider actors’ network - his k-neighborhood in Actor Graph, or his cluster in Actor Graph (find using DBSCAN algorithm). We treat an actor's career as a function - from time to quality (measured as quality of movies he plays in). We inspect how changes in this function relate to changes in average of this function for his environment. 
+To measure the networking impact in an actor's career, we consider actors’ network - his k-neighborhood in Actor Graph.
+We treat an actor's career as a function - from time to quality (measured as quality of movies he plays in).
+We inspect how changes in this function relate to changes in average of this function for his environment. 
+In order to answer our questions, we manipulate this graph and make different plottings of it across several years.
+For more information, refer to the notebook.
 
-## Proposed timeline
+### Data story
 
-We divide the workload in the five remaining weeks:
-1. Week 1 (21st Nov): Indepth graph analysis.
-1. Week 2 (28th Nov): Build graph clusters using DBSCAN and k-neighborhood. Compare both approaches 
-1. Week 3 (5th Dec): Inspect correlation between actors career and his network.
-1. Week 4 (12nd Dec): Aggregate results and build the website to tell the data story.
-1. Week 5 (19th Dec): Nothing (free time in case of inconveniences).
+We use github pages and base our web site on [ADA's github pages template](https://github.com/epfl-ada/ada-template-website).
+In order to display the graphs we use [3d-force-graph](https://github.com/vasturiano/3d-force-graph).
+Finally, some interactive plots were done using [plotly](https://plotly.com).
 
-## Organization within the team
+## Member contributions
 
-| Team member | Task |
-| :-: | :-: |
-| Ale | Make graph visualization and inspect actors' careers. |
-| Charlotte | Indepth graph analysis and inspection of actors’ careers. |
-| Konrad | Implementing and testing cluster algorithms in the graph. Aggregate results. |
-| Matthias | Develop the web interface and write the narrative for the data story. |
+- Ale: Graph visualization, data visualization, readme.
+- Charlotte: Preparation of website, writing data story.
+- Konrad: Graph pipeline, pre-processing, code quality control.
+- Matthias: Pre-processing, interpretation of results, writing data story.
